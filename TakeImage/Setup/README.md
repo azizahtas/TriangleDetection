@@ -26,6 +26,11 @@ $ sudo apt-get install libusb-dev
 ```sh
 $ sudo apt-get update
 ```
+### Extra Package Only For Target Racks With PIR Sensor For Debugging Remotely
+```sh
+$ sudo apt-get install arduino
+```
+
 ### Setup Directory Structure
 Create Folder With rack name. ex: Overland, Target 2
 
@@ -85,3 +90,4 @@ $ sudo bash /home/pi/${rack name folder}/camera.sh
 | lsusb | List All USB devices Connected |
 | ls -l /dev/v4l/by-path/ | List Video Devices By path |
 | ls -lrt | Check File Permissions |
+| ls /dev/tty* | List All Serial Devices Connected |
