@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SmartRack&trade; - Ads</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- add ons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="template.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="images/logo-red.svg" alt="SmartRack.io"></a>
+      <div class="collapse navbar-collapse" id="navbarTop">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="stores.html">Stores </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="audience.html">Audience </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Ads </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="starter-template">
+
+        <h1>Ads</h1>
+        <p class="lead">
+          The current point-of-sale ads running on smart racks.
+          <a href="#" id="info" ><i class="fa fa-info-circle" style="font-size:24px"></i></a>
+        </p>
+        <i class="fa fa-gear fa-spin hidden-xl-down" style="font-size:30px"></i>
+        <p id="details" style="display:none;">Ads are schedule through RedPost's Advertise interface and can be still images or short video clips without audio -- no speakers are installed on the smart racks.</p>
+
+        <div class="row" id="ads">
+          <div class="col-md-12">
+
+            <ul class="list-unstyled">
+              <li class="media">
+                <img class="d-flex mr-3" style="width:300px;" src="https://s3.amazonaws.com/redpost-design/production/contents/loki/contents/fa45c0b0c5fa11e6a1f63920c70044c3.jpg" alt="">
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">New Sriracha Cheez-it Snack Mix</h5>
+                  Innovation item for 2016
+                  <table class="table"><thead><tr><th>Start</th><th>End</th><th>Days</th><th>Unique Impressions</th>
+                        <th>Daily Uniques</th>
+                        <th>Plays</th>
+                        <th>Locations</th>
+                        </tr></thead>
+                        <tbody><tr><td>12/19/2016</td><td>05/01/2017</td><td>133.00</td><td>92,486</td><td>695</td><td>345,173</td><td>4</td></tr></tbody></table>
+                </div>
+              </li>
+              <li class="media">
+                <img class="d-flex mr-3" style="width:300px;" src="https://s3.amazonaws.com/redpost-design/production/contents/loki/contents/fa0b28b0c5fa11e6915fdd54df976fbc.jpg" alt="">
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">Special K Cracker Chips</h5>
+                </div>
+              </li>
+              <li class="media">
+                <img class="d-flex mr-3" style="width:300px;" src="https://s3.amazonaws.com/redpost-design/production/contents/loki/contents/f91bbfa0c5fa11e69982c5bdc70482b9.jpg" alt="">
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">Cheez-its Family</h5>
+                </div>
+              </li>
+              <li class="media">
+                <video controls loop class="d-flex mr-3" style="width:300px;">
+                  <source src="https://s3.amazonaws.com/redpost-design/production/contents/video/contents/d76fac30ea1d11e69cf5e5a22242d82c.mp4" type="video/mp4">
+                </video>
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">Pringles $.50 promotion</h5>
+                </div>
+              </li>
+              <li class="media">
+                <video controls loop class="d-flex mr-3" style="width:300px;">
+                  <source src="https://s3.amazonaws.com/redpost-design/production/contents/video/contents/2495fd60ea3311e6b953e51ea55fa4d2.mp4" type="video/mp4">
+                </video>
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">Introduction to SmartRack</h5>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+      function getAds(json) {
+        var imgs = new Array();
+        $.each(json['contents'], function(i, content) {
+          data.push( imgs[content['url']] );
+        });
+        console.log(imgs);
+        hideSpinner();
+      }
+
+      function getURL() {
+        return "https://api.redpost.co/api/displays/vQ5aWKELg9vhqHJoW";//+$("#displayId").val();
+      }
+
+      function hideSpinner () {
+        $("i.fa-gear").addClass("hidden-xl-down");
+      }
+
+      function showSpinner () {
+        $("i.fa-gear").removeClass("hidden-xl-down");
+      }
+
+      function fetchData() {
+        showSpinner();
+        $.ajax({
+          url: getURL(),
+          dataType: "json",
+          success: "getAds"
+        });
+        return false;
+      }
+
+      $(document).ready(function() {
+        //fetchData();
+        $("#info").click(function() { $("#details").toggle(100); });
+      });
+    </script>
+
+  </body>
+</html>
+

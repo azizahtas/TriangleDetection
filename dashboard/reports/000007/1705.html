@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SmartRack&trade; - Riverside Medical - Period #1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- add ons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../../template.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="../../images/logo-red.svg" alt="SmartRack.io"></a>
+      <div class="collapse navbar-collapse" id="navbarTop">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="starter-template">
+
+        <h1>Riverside Medical - SmartRack Period #1</h1>
+        <h3>April 17 - June 4, 2017</h3>
+        <p class="lead">
+          We've gathered our insights for the first month of SmartRack. Questions? Email <a href="mailto:help@smartrack.io">help@smartrack.io</a> or call <a href="tel:5748498881">574-849-8881</a>
+        </p>
+
+        <h2>Accomplishments</h2>
+        <ul class="lead">
+          <li>Designed and implemented a new Healthy Planogram</li>
+          <li>Introduced new innovation products, including Bare Naked Granola Bites and GoLean bars</li>
+        </ul>
+
+        <h2>Lost Sales Estimate</h2>
+        <img src="1705/1.png" class="col-md-3">
+        <img src="1705/2.png" class="col-md-3">
+        <img src="1705/3.png" class="col-md-3">
+        <img src="1705/4.png" class="col-md-3">
+        <img src="1705/5.png" class="col-md-3">
+        <img src="1705/6.png" class="col-md-3">
+
+        <p>&nbsp;<br/></p>
+        <h2>Foot Traffic vs. Unique Store Visits
+          <a href="#" id="info" ><i class="fa fa-question-circle" style="font-size:24px"></i></a>
+        </h2>
+        <span id="details" style="display:none;">
+          <p><b>Foot traffic</b> is all people seen in and around your SmartRack, as measured by wifi devices the SmartRack sees. Think of these numbers as your potential customers.</p>
+          <p><b>Unique Store Visits</b> is customers that stayed for more than 30 seconds and came within ~20' of the SmartRack. Employees (wifi devices the SmartRack sees every day) are filtered out.</p>
+        </span>
+
+        <script>
+audience =
+[
+ {
+   "FIELD1": "2017-05-05",
+   "FIELD2": 1921,
+   "FIELD3": 294
+ },
+ {
+   "FIELD1": "2017-05-06",
+   "FIELD2": 1105,
+   "FIELD3": 147
+ },
+ {
+   "FIELD1": "2017-05-07",
+   "FIELD2": 1917,
+   "FIELD3": 136
+ },
+ {
+   "FIELD1": "2017-05-08",
+   "FIELD2": 2371,
+   "FIELD3": 339
+ },
+ {
+   "FIELD1": "2017-05-09",
+   "FIELD2": 3587,
+   "FIELD3": 527
+ },
+ {
+   "FIELD1": "2017-05-10",
+   "FIELD2": 2272,
+   "FIELD3": 368
+ },
+ {
+   "FIELD1": "2017-05-11",
+   "FIELD2": 3350,
+   "FIELD3": 420
+ },
+ {
+   "FIELD1": "2017-05-12",
+   "FIELD2": 2078,
+   "FIELD3": 283
+ },
+ {
+   "FIELD1": "2017-05-13",
+   "FIELD2": 1217,
+   "FIELD3": 165
+ },
+ {
+   "FIELD1": "2017-05-14",
+   "FIELD2": 953,
+   "FIELD3": 136
+ },
+ {
+   "FIELD1": "2017-05-15",
+   "FIELD2": 2479,
+   "FIELD3": 361
+ },
+ {
+   "FIELD1": "2017-05-16",
+   "FIELD2": 3096,
+   "FIELD3": 435
+ },
+ {
+   "FIELD1": "2017-05-17",
+   "FIELD2": 3088,
+   "FIELD3": 473
+ },
+ {
+   "FIELD1": "2017-05-18",
+   "FIELD2": 2714,
+   "FIELD3": 430
+ },
+ {
+   "FIELD1": "2017-05-19",
+   "FIELD2": 2542,
+   "FIELD3": 414
+ },
+ {
+   "FIELD1": "2017-05-20",
+   "FIELD2": 1059,
+   "FIELD3": 192
+ },
+ {
+   "FIELD1": "2017-05-21",
+   "FIELD2": 871,
+   "FIELD3": 117
+ },
+ {
+   "FIELD1": "2017-05-22",
+   "FIELD2": 2348,
+   "FIELD3": 402
+ },
+ {
+   "FIELD1": "2017-05-23",
+   "FIELD2": 2556,
+   "FIELD3": 454
+ },
+ {
+   "FIELD1": "2017-05-24",
+   "FIELD2": 2486,
+   "FIELD3": 346
+ },
+ {
+   "FIELD1": "2017-05-25",
+   "FIELD2": 2867,
+   "FIELD3": 467
+ },
+ {
+   "FIELD1": "2017-05-26",
+   "FIELD2": 2602,
+   "FIELD3": 379
+ },
+ {
+   "FIELD1": "2017-05-27",
+   "FIELD2": 930,
+   "FIELD3": 149
+ },
+ {
+   "FIELD1": "2017-05-28",
+   "FIELD2": 885,
+   "FIELD3": 123
+ },
+ {
+   "FIELD1": "2017-05-29",
+   "FIELD2": 1011,
+   "FIELD3": 163
+ },
+ {
+   "FIELD1": "2017-05-30",
+   "FIELD2": 3452,
+   "FIELD3": 462
+ },
+ {
+   "FIELD1": "2017-05-31",
+   "FIELD2": 2373,
+   "FIELD3": 410
+ },
+ {
+   "FIELD1": "2017-06-01",
+   "FIELD2": 3022,
+   "FIELD3": 484
+ },
+ {
+   "FIELD1": "2017-06-02",
+   "FIELD2": 2532,
+   "FIELD3": 368
+ },
+ {
+   "FIELD1": "2017-06-03",
+   "FIELD2": 946,
+   "FIELD3": 181
+ },
+ {
+   "FIELD1": "2017-06-04",
+   "FIELD2": 883,
+   "FIELD3": 161
+ }
+]
+
+        </script>
+        <div class="col-md-12">
+          <canvas id="foottraffic" style="width:100%;height:350px;"></canvas>
+        </div>
+
+      </div>
+    </div><!-- /.container -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="../../jquery.zoom.min.js"></script>
+    <script src="../../jquery-dateFormat.min.js"></script>
+    <script src="../../prettycharts.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        chartFootTraffic(audience);
+
+
+
+      $("#info").click(function() { $("#details").toggle(100); return false; });
+      });
+    </script>
+
+  </body>
+</html>
+

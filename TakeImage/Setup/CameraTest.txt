@@ -1,0 +1,1 @@
+fswebcam --device /dev/video0 -S 5 -D 3 --font sans:72 --no-banner -r 1280x720 --jpeg 65 image0.jpg

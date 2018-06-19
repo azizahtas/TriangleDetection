@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://www.chartjs.org/samples/latest/charts/doughnut.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Doughnut Chart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+    <style>
+@font-face {
+    font-family: Kelloggs;
+    src: url(KelloggsSans-Regular.otf);
+}
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="canvas-holder" style="width:400px">
+        <canvas id="chart-area" width="400" height="400" style="display: block; height: 400px; width: 400px;">
+    </canvas></div>
+    <div style="font-family: Kelloggs; position: absolute; width: 400px; top: 170px; z-index: 1; text-align: center;">
+      <p style="font-size: 6em; line-height:1em;margin:0;">-$4</p>
+      <p style="font-size: 2em; margin: 0;">2 units lost</p>
+    </div>
+    <div style="font-family: Kelloggs; position: absolute; width: 400px; top: 420px; z-index: 1; text-align: center;">
+      <p style="font-size: 3em; margin:0; line-height: 1em;">Pringles Pizza</p>
+    </div>
+    <script>
+
+    var config = {
+        type: "doughnut",
+            data: {
+            datasets: [{
+                data: [
+                  21,
+                  21,
+                  7,
+                ],
+                backgroundColor: [
+                  "rgb(46,139,87)",
+                  "rgb(255,215,0)",
+                  "rgb(220,20,60)",
+                ],
+                label: "Cheezit Original",
+            }],
+            labels: [
+                "21 in stock days",
+                "21 low stock days",
+                "7 out-of-stock days",
+            ]
+        },
+        options: {
+          legend: {
+              display: true,
+            },
+            responsive: true,
+            animation: {
+                animateScale: false,
+                animateRotate: false,
+            },
+            cutoutPercentage: 80,
+        }
+};
+
+    window.onload = function() {
+        var ctx = document.getElementById("chart-area").getContext("2d");
+        window.myDoughnut = new Chart(ctx, config);
+    };
+
+    </script>
+
+
+
+</body></html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SmartRack&trade; - Audience</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- add ons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="template.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="images/logo-red.svg" alt="SmartRack.io"></a>
+      <div class="collapse navbar-collapse" id="navbarTop">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="stores.html">Stores </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="audience.html">Audience <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ads.html">Ads </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="starter-template">
+
+        <h1>Audience</h1>
+        <p class="lead">
+          To view audience, select a rack and date range below.
+          <a href="#" id="info" ><i class="fa fa-info-circle" style="font-size:24px"></i></a>
+        </p>
+        <p id="details" style="display:none;">The smart shelf passively collects wifi device data, and extrapolates for total audience based on the number of devices seen. Additional analytics, like return rate, store crossover, and linger time, are also available.</p>
+        <form id="vsv" class="form-inline">
+          <div class="form-group">
+            <label for="rackNum">Store</label>
+            <select class="form-control" id="rackNum">
+              <option value="2CbecGzkgwDCvdS8a">Power Market (Elmhurst, IL)</option>
+              <option value="Hcxi6Qgcp4DQSNcpF">Corporate Cafeteria (Battle Creek, MI)</option>
+              <option value="pu8yz2KFvHqjJAMRB">MPI Research (Mattawan, MI)</option>
+              <option value="5dChKuNdHMPa6x29p">Kalamazoo Valley Community College (Kalamazoo, MI)</option>
+              <option value="Aajr5rExjnpy8vnic">Riverside Medical Center (Kankakee, IL)</option>
+              <option value="du7yB6X96JhWQ2hmK">Marathon (Rolling Meadows, IL)</option>
+              <option value="sPGJkyXrvYbJ9YvDN">BP (Flossmoor, IL)</option>
+              <option value="mdJARLPNZgLYXstch">BP (Frankfort, IL)</option>
+              <option value="mQdgcgqjb7GrNJbKs">BP (Mokena, IL)</option>
+              <option value="jRyW2vXcC6TNmfs7a">BP (South Holland, IL)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="startDate">From</label>
+            <input class="form-control" type="date" value="2016-11-10" id="startDate">
+          </div>
+          <div class="form-group">
+            <label for="endDate">To</label>
+            <input class="form-control" type="date" value="2016-12-09" id="endDate">
+          </div>
+          <button type="submit" class="btn btn-primary">View</button>
+          <i class="fa fa-gear fa-spin hidden-xl-down" style="font-size:30px"></i>
+        </form>
+
+        <div class="row" id="audience">
+          <div class="col-md-12">
+            <canvas id="audienceChart" style="width:100%;"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.container -->
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="jquery-dateFormat.min.js"></script>
+
+    <script type="text/javascript">
+
+      // configure charts
+      Chart.defaults.global.legend.display = false;
+      Chart.defaults.global.animation = false;
+      var currData = new Array();
+
+      function updateAudience(json) {
+          var labels = new Array();
+          var data = new Array();
+          $.each(json, function(i, day) {
+            labels.push( day['date'] );
+            data.push( day['uniques'] );
+          });
+          console.log(labels);
+          console.log(data);
+
+          var ctx = $("#audienceChart").get(0).getContext("2d");
+          var chartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [{
+                data: data,
+              }]
+              // datasets: [ { data: data } ]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                  }
+                }],
+                xAxes: [{
+                  type: 'time',
+                  unit: 'day',
+                  time: {
+                    displayFormats: {
+                      'day': 'MMM DD'
+                    }
+                  }
+                }]
+              }
+            }
+        });
+        hideSpinner();
+      }
+
+      function getURL() {
+        return "https://analyze.redpost.co/api/locations/"+$("#rackNum").val()+"/impressions?timezone=America/Chicago&start="+$("#startDate").val()+"&end="+$("#endDate").val();
+      }
+
+      function hideSpinner () {
+        $("i.fa-gear").addClass("hidden-xl-down");
+      }
+
+      function showSpinner () {
+        $("i.fa-gear").removeClass("hidden-xl-down");
+      }
+
+      function fetchData(event) {
+        event.preventDefault();
+        showSpinner();
+        $.ajax({
+          url: getURL(),
+          dataType: "jsonp",
+          jsonpCallback: "updateAudience"
+        });
+        return false;
+      }
+
+      $(document).ready(function() {
+        var t = new Date();
+        $("#endDate").val($.format.date(t, 'yyyy-MM-dd'));
+        $("#startDate").val($.format.date(t.setMonth(t.getMonth() - 1), 'yyyy-MM-dd'));
+        $("#vsv").submit(fetchData);
+        $("#info").click(function() { $("#details").toggle(100); });
+      });
+    </script>
+
+  </body>
+</html>
+

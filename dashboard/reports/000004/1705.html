@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SmartRack&trade; - HQ Cafeteria - Period #1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- add ons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../../template.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="../../images/logo-red.svg" alt="SmartRack.io"></a>
+      <div class="collapse navbar-collapse" id="navbarTop">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="starter-template">
+
+        <h1>HQ Cafeteria - SmartRack Period #1</h1>
+        <h3>April 17 - June 4, 2017</h3>
+        <p class="lead">
+          We've gathered our insights for the first month of SmartRack. Questions? Email <a href="mailto:help@smartrack.io">help@smartrack.io</a> or call <a href="tel:5748498881">574-849-8881</a>
+        </p>
+
+        <h2>Accomplishments</h2>
+        <ul class="lead">
+          <li>Installed SmartRack into location, consolidated Kellogg's product</li>
+        </ul>
+
+        <h2>Lost Sales Estimate</h2>
+        <img src="1705/1.png" class="col-md-3">
+        <img src="1705/2.png" class="col-md-3">
+
+        <p>&nbsp;<br/></p>
+        <h2>Foot Traffic vs. Unique Store Visits
+          <a href="#" id="info" ><i class="fa fa-question-circle" style="font-size:24px"></i></a>
+        </h2>
+        <span id="details" style="display:none;">
+          <p><b>Foot traffic</b> is all people seen in and around your SmartRack, as measured by wifi devices the SmartRack sees. Think of these numbers as your potential customers.</p>
+          <p><b>Unique Store Visits</b> is customers that stayed for more than 30 seconds and came within ~20' of the SmartRack. Employees (wifi devices the SmartRack sees every day) are filtered out.</p>
+        </span>
+
+        <script>
+audience =
+[
+ {
+   "FIELD1": "2017-04-17",
+   "FIELD2": 3205,
+   "FIELD3": 517
+ },
+ {
+   "FIELD1": "2017-04-18",
+   "FIELD2": 3308,
+   "FIELD3": 544
+ },
+ {
+   "FIELD1": "2017-04-19",
+   "FIELD2": 3852,
+   "FIELD3": 596
+ },
+ {
+   "FIELD1": "2017-04-20",
+   "FIELD2": 3457,
+   "FIELD3": 541
+ },
+ {
+   "FIELD1": "2017-04-21",
+   "FIELD2": 1254,
+   "FIELD3": 253
+ },
+ {
+   "FIELD1": "2017-04-22",
+   "FIELD2": 22,
+   "FIELD3": 6
+ },
+ {
+   "FIELD1": "2017-04-23",
+   "FIELD2": 78,
+   "FIELD3": 12
+ },
+ {
+   "FIELD1": "2017-04-24",
+   "FIELD2": 4620,
+   "FIELD3": 639
+ },
+ {
+   "FIELD1": "2017-04-25",
+   "FIELD2": 6771,
+   "FIELD3": 867
+ },
+ {
+   "FIELD1": "2017-04-26",
+   "FIELD2": 5761,
+   "FIELD3": 826
+ },
+ {
+   "FIELD1": "2017-04-27",
+   "FIELD2": 5081,
+   "FIELD3": 776
+ },
+ {
+   "FIELD1": "2017-04-28",
+   "FIELD2": 1655,
+   "FIELD3": 352
+ },
+ {
+   "FIELD1": "2017-04-29",
+   "FIELD2": 28,
+   "FIELD3": 6
+ },
+ {
+   "FIELD1": "2017-04-30",
+   "FIELD2": 24,
+   "FIELD3": 6
+ },
+ {
+   "FIELD1": "2017-05-01",
+   "FIELD2": 3114,
+   "FIELD3": 493
+ },
+ {
+   "FIELD1": "2017-05-02",
+   "FIELD2": 3546,
+   "FIELD3": 584
+ },
+ {
+   "FIELD1": "2017-05-03",
+   "FIELD2": 4758,
+   "FIELD3": 610
+ },
+ {
+   "FIELD1": "2017-05-04",
+   "FIELD2": 4307,
+   "FIELD3": 719
+ },
+ {
+   "FIELD1": "2017-05-05",
+   "FIELD2": 1178,
+   "FIELD3": 226
+ },
+ {
+   "FIELD1": "2017-05-06",
+   "FIELD2": 15,
+   "FIELD3": 5
+ },
+ {
+   "FIELD1": "2017-05-07",
+   "FIELD2": 27,
+   "FIELD3": 3
+ },
+ {
+   "FIELD1": "2017-05-08",
+   "FIELD2": 3160,
+   "FIELD3": 542
+ },
+ {
+   "FIELD1": "2017-05-09",
+   "FIELD2": 3772,
+   "FIELD3": 605
+ },
+ {
+   "FIELD1": "2017-05-10",
+   "FIELD2": 3699,
+   "FIELD3": 575
+ },
+ {
+   "FIELD1": "2017-05-11",
+   "FIELD2": 3601,
+   "FIELD3": 602
+ },
+ {
+   "FIELD1": "2017-05-12",
+   "FIELD2": 1377,
+   "FIELD3": 283
+ },
+ {
+   "FIELD1": "2017-05-13",
+   "FIELD2": 45,
+   "FIELD3": 7
+ },
+ {
+   "FIELD1": "2017-05-14",
+   "FIELD2": 16,
+   "FIELD3": 6
+ },
+ {
+   "FIELD1": "2017-05-15",
+   "FIELD2": 4206,
+   "FIELD3": 608
+ },
+ {
+   "FIELD1": "2017-05-16",
+   "FIELD2": 4987,
+   "FIELD3": 729
+ },
+ {
+   "FIELD1": "2017-05-17",
+   "FIELD2": 3899,
+   "FIELD3": 535
+ },
+ {
+   "FIELD1": "2017-05-18",
+   "FIELD2": 4198,
+   "FIELD3": 611
+ },
+ {
+   "FIELD1": "2017-05-19",
+   "FIELD2": 1275,
+   "FIELD3": 243
+ },
+ {
+   "FIELD1": "2017-05-20",
+   "FIELD2": 98,
+   "FIELD3": 19
+ },
+ {
+   "FIELD1": "2017-05-21",
+   "FIELD2": 32,
+   "FIELD3": 2
+ },
+ {
+   "FIELD1": "2017-05-22",
+   "FIELD2": 3420,
+   "FIELD3": 572
+ },
+ {
+   "FIELD1": "2017-05-23",
+   "FIELD2": 6029,
+   "FIELD3": 739
+ },
+ {
+   "FIELD1": "2017-05-24",
+   "FIELD2": 6496,
+   "FIELD3": 726
+ },
+ {
+   "FIELD1": "2017-05-25",
+   "FIELD2": 4616,
+   "FIELD3": 725
+ },
+ {
+   "FIELD1": "2017-05-26",
+   "FIELD2": 685,
+   "FIELD3": 98
+ },
+ {
+   "FIELD1": "2017-05-30",
+   "FIELD2": 2811,
+   "FIELD3": 538
+ },
+ {
+   "FIELD1": "2017-05-31",
+   "FIELD2": 2860,
+   "FIELD3": 478
+ },
+ {
+   "FIELD1": "2017-06-01",
+   "FIELD2": 3343,
+   "FIELD3": 623
+ },
+ {
+   "FIELD1": "2017-06-02",
+   "FIELD2": 1147,
+   "FIELD3": 247
+ },
+ {
+   "FIELD1": "2017-06-03",
+   "FIELD2": 38,
+   "FIELD3": 8
+ },
+ {
+   "FIELD1": "2017-06-04",
+   "FIELD2": 24,
+   "FIELD3": 5
+ }
+]
+
+        </script>
+        <div class="col-md-12">
+          <canvas id="foottraffic" style="width:100%;height:350px;"></canvas>
+        </div>
+
+      </div>
+    </div><!-- /.container -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="../../jquery.zoom.min.js"></script>
+    <script src="../../jquery-dateFormat.min.js"></script>
+    <script src="../../prettycharts.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        chartFootTraffic(audience);
+
+
+
+      $("#info").click(function() { $("#details").toggle(100); return false; });
+      });
+    </script>
+
+  </body>
+</html>
+

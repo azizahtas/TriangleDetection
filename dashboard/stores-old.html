@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>SmartRack&trade; - Stores</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- add ons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="template.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-fixed-top navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="images/logo-red.svg" alt="SmartRack.io"></a>
+      <div class="collapse navbar-collapse" id="navbarTop">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Stores <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="audience.html">Audience </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ads.html">Ads </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="starter-template">
+
+        <h1>Stores</h1>
+        <p class="lead">
+          All stores are listed below.
+          <a href="#" id="info" ><i class="fa fa-question-circle" style="font-size:24px"></i></a>
+        </p>
+        <span id="details" style="display:none;">
+          <p>For more information on a store, click the corresponding icon:</p>
+          <a href="#" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-info-circle"></i></a> Details - contact log, photos, operator, distributor details<br>
+          <a href="#" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-heart"></i></a> Heartbeat - hardware, connection, and software logs<br>
+          <a href="#" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-area-chart"></i></a> Shelves - Products and estimated inventory levels<br>
+          <a href="#" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-users"></i></a> Audience - Foot traffic by day, last 30 days<br>
+          <a href="#" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-lightbulb-o"></i></a> Insights - Shared with operators weekly<br>
+        </span>
+
+        <table class="table" id="storesTable">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Status</th>
+              <th class="sort" style="cursor:pointer;" data-sort="sort-health" data-key="problem">Health</th>
+              <th class="sort" style="cursor:pointer;" data-sort="sort-player-status" data-key="contactedAt">Last Seen
+                </th><th class="sort" style="cursor:pointer;" data-sort="sort-location" data-key="location.address">Address
+                </th><th class="sort" style="cursor:pointer;" data-sort="sort-display" data-key="name">Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="display table-success" data-id="vQ5aWKELg9vhqHJoW">
+              <td><img src="images/racks/hqcafeteria-thumb.jpg" class="rounded float-left" \></td>
+              <td>Active</td>
+              <td>OK</td>
+              <td nowrap>2017-04-17 17:42</td>
+              <td><a href="https://organize.redpost.co/market/oLAkrfhnipKSnuNyD/locations/Hcxi6Qgcp4DQSNcpF/edit">Heritage Tower<br>25 W Michigan Ave, Battle Creek, MI 49017<br> USA</a></td>
+              <td><a href="https://organize.redpost.co/displays/vQ5aWKELg9vhqHJoW">Kellogg's HQ Cafeteria</a></td>
+              <td nowrap>
+                <a href="#" role="button" aria-pressed="true" id="000004-toggle" class="btn btn-outline-primary btn-sm"><i class="fa fa-info-circle"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="000004-toggle2" class="btn btn-outline-primary btn-sm"><i class="fa fa-heart"></i></a>
+                <a href="shelves/000004.html" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-area-chart"></i></a>
+                <a href="audience.html?location=Hcxi6Qgcp4DQSNcpF" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-users"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="000004-toggle3" class="btn btn-outline-primary btn-sm"><i class="fa fa-lightbulb-o"></i></a>
+              </td>
+            </tr>
+            <tr class="storeDetails" id="000004-insights">
+              <td colspan="1">
+                <h5>Summary</h5>
+                <p>Receptive manager open to new product ideas</p>
+              </td>
+              <td colspan="6">
+                <h5><i class="fa fa-lightbulb-o"></i> Insights</h5>
+                <table class="table-sm">
+                  <tr>
+                    <th>Photo</th>
+                    <th>Advice (under 80 words)</th>
+                    <th>Date</th>
+                    <th>Call to Action</th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td><img src="insights/000004/2017-04-18.jpg" class="rounded" style="width:200px;"></td>
+                    <td>
+                        <h2>Healthy Snacks are Trending</h2>
+                      <p>Sales of Special K Chips are going well since you introduced them in February. This may indicate that your customers are looking for healthier snack options.</p>
+                      <p>Idea: replace two rows of Keebler Fudge Stripes, a lower volume item, with the new <a href="http://www.kelloggsspecialtychannels.com/Home/ProductDetails/6368756/bear-naked-granola-bites-peanut-butter-honey-product?segid=0">Bear Naked&reg; Granola Bites</a>, which come in Peanut Butter &amp; Honey and Dark Chocolate Sea Salt flavors.</p>
+                      <p>Distributor X carries Bear Naked&reg; Granola Bites, item numbers X and X.</p>
+                    </td>
+                    <td>2017-04-18</td>
+                    <td>Link to Bare Naked Bites sell-in PDF</td>
+                    <td><a href="insights/000004/2017-04-18.html" role="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye"></i></a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="storeDetails" id="000004-heartbeat">
+              <td colspan=1>
+                  <h5>Tech Details</h5>
+                    <table class="table-sm"><tr><th>max_signal</th>
+                      <td>3</td></tr><tr><th>min_signal</th>
+                      <td>3</td></tr><tr><th>band</th>
+                      <td>11</td></tr><tr><th>carrier</th>
+                      <td>T-Mobile</td></tr><tr><th>IMEI</th>
+                      <td>860115020840877</td></tr><tr><th>recorded</th>
+                      <td>2017-04-17</td></tr><tr><th>vpn</th>
+                      <td>01JC</td></tr><tr><th>HW</th>
+                      <td>PI</td></tr><tr><th>REV</th>
+                      <td>PI2</td></tr><tr><th>RTC</th>
+                      <td>1</td></tr><tr><th>DIST</th>
+                      <td>jessie</td></tr><tr><th>kernel</th>
+                      <td>4.4.9-v7</td></tr><tr><th>wicker</th>
+                      <td>2016-12-14</td></tr><tr><th>MAXTEMP</th>
+                      <td>53</td></tr><tr><th>MINTEMP</th>
+                      <td>49</td></tr><tr><th>CARD</th>
+                      <td>4GALCATEL</td></tr></tbody></table>
+</td>
+              <td colspan=6>
+                <h5><i class="fa fa-heart"></i> Heartbeat</h5>
+                <table class="table-sm"><thead><tr>
+                      <th>Date</th>
+                      <th>Down</th>
+                      <th>Disconn</th>
+                      <th>Tx</th>
+                      <th>Rx</th>
+                      <th>Total data</th>
+                      <th>Shutdowns</th>
+                      <th>Reboots</th>
+                      <th>IMEI</th>
+                      <th>Signal min/max</th></tr></thead>
+                  <tbody><tr>
+                      <td>2017-04-16</td>
+                      <td>6</td>
+                      <td>0</td>
+                      <td>79</td>
+                      <td>33</td>
+                      <td>113</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-15</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>80</td>
+                      <td>9</td>
+                      <td>90</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-14</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>81</td>
+                      <td>9</td>
+                      <td>90</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-13</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>82</td>
+                      <td>10</td>
+                      <td>92</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/4</td></tr><tr>
+                      <td>2017-04-12</td>
+                      <td>6</td>
+                      <td>2</td>
+                      <td>83</td>
+                      <td>33</td>
+                      <td>117</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-11</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>83</td>
+                      <td>10</td>
+                      <td>93</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/4</td></tr><tr>
+                      <td>2017-04-10</td>
+                      <td>224</td>
+                      <td>2</td>
+                      <td>81</td>
+                      <td>77</td>
+                      <td>158</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/4</td></tr><tr>
+                      <td>2017-04-09</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>73</td>
+                      <td>10</td>
+                      <td>84</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-08</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>81</td>
+                      <td>9</td>
+                      <td>91</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-07</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>82</td>
+                      <td>10</td>
+                      <td>92</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-06</td>
+                      <td>5</td>
+                      <td>3</td>
+                      <td>79</td>
+                      <td>34</td>
+                      <td>113</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-05</td>
+                      <td>9</td>
+                      <td>4</td>
+                      <td>85</td>
+                      <td>57</td>
+                      <td>142</td>
+                      <td>0</td>
+                      <td>2</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-04</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>81</td>
+                      <td>10</td>
+                      <td>92</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/5</td></tr><tr>
+                      <td>2017-04-03</td>
+                      <td>5</td>
+                      <td>2</td>
+                      <td>79</td>
+                      <td>34</td>
+                      <td>114</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-04-02</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>84</td>
+                      <td>10</td>
+                      <td>95</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 4/4</td></tr><tr>
+                      <td>2017-04-01</td>
+                      <td>16683</td>
+                      <td>0</td>
+                      <td>42</td>
+                      <td>32</td>
+                      <td>74</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 4/4</td></tr><tr>
+                      <td>2017-03-31</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>85</td>
+                      <td>10</td>
+                      <td>95</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/4</td></tr><tr>
+                      <td>2017-03-30</td>
+                      <td>5</td>
+                      <td>2</td>
+                      <td>79</td>
+                      <td>34</td>
+                      <td>113</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-03-29</td>
+                      <td>6</td>
+                      <td>2</td>
+                      <td>87</td>
+                      <td>34</td>
+                      <td>121</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr><tr>
+                      <td>2017-03-28</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>85</td>
+                      <td>10</td>
+                      <td>96</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>860115020840877</td>
+                      <td>T-Mobile (11) 3/3</td></tr></tbody></table>
+							</td>
+						</tr>
+						<tr class="storeDetails" id="000004-details">
+              <td>
+                <h5><i class="fa fa-info-circle"></i> Details</h5>
+                <table class="table-sm"><tbody>
+                  <tr><th>Operator</th><td>Andrea Powell <Andrea.Powell@kellogg.com> </td></tr>
+                  <tr><th>Manager</th><td>Beth Wolfe <wolfe-beth@aramark.com> P  269.961.3784  M  269.744.6971</td></tr>
+                  <tr><th>Owner</th><td>Aramark</td></tr>
+                  <tr><th>Distributor(s)</th><td>Sysco, GFS</td></tr>
+                  <tr><th>Kellogg's Sales rep</th><td>?</td></tr>
+                  <tr><th>SmartRack rep</th><td>Sashi Murthy</td></tr>
+                  <tr><th>Rack number</th><td>000004</td></tr>
+						     </table>
+</td>
+              <td colspan="6">
+								<h5>History</h5>
+								<table class="table-sm"><thead><tr><th>Date</th>
+<th>Tags</th>
+<th>Notes</th>
+<th>User</th></tr></thead>
+<tbody><tr><td>02/03/2017, 11:38 AM</td>
+<td>ads</td>
+<td>Started $.50 campaign</td>
+<td>Eric</td></tr><tr><td>02/03/2017, 11:38 AM</td>
+<td>install</td>
+<td>setup rack in cafeteria, right before registers</td>
+<td>Eric</td></tr></tbody></table>
+              </td>
+
+
+
+            <tr class="display table-success" data-id="ZtrpdmZJ23yktfjLo">
+              <td><img src="images/racks/kvcc-thumb.jpg" class="rounded float-left" \></td>
+              <td>Active</td>
+              <td>OK</td>
+              <td nowrap>2017-04-17 17:25</td>
+              <td><a href="https://organize.redpost.co/market/oLAkrfhnipKSnuNyD/locations/5dChKuNdHMPa6x29p/edit">6767 W O Ave<br>Kalamazoo, MI<br> United States</a></td>
+              <td><a href="https://organize.redpost.co/displays/ZtrpdmZJ23yktfjLo">KVCC Cafeteria</a></td>
+              <td nowrap>
+                <a href="#" role="button" aria-pressed="true" id="000006-toggle" class="btn btn-outline-primary btn-sm"><i class="fa fa-info-circle"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="000006-toggle2" class="btn btn-outline-primary btn-sm"><i class="fa fa-heart"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-area-chart"></i></a>
+                <a href="audience.html?location=5dChKuNdHMPa6x29p" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-users"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="000006-toggle3" class="btn btn-outline-primary btn-sm"><i class="fa fa-lightbulb-o"></i></a>
+              </td>
+            </tr>
+            <tr class="storeDetails" id="000006-insights">
+              <td colspan="1">
+                <h5>Summary</h5>
+                <p>Receptive, open to new product ideas</p>
+              </td>
+              <td colspan="6">
+                <h5><i class="fa fa-lightbulb-o"></i> Insights</h5>
+                <table class="table-sm">
+                  <tr>
+                    <th>Photo</th>
+                    <th>Advice (under 80 words)</th>
+                    <th>Date</th>
+                    <th>Call to Action</th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td><img src="insights/000006/2017-04-18.jpg" class="rounded" style="width:200px;"></td>
+                    <td>
+                        <h2>Healthy Snacks on the Rise</h2>
+                        <p>Snackers, especially the younger generation, are increasingly demanding healthy options. You're downt to just two remaining Kashi Granola Bars.</p>
+                        <p>Idea: Restock with Kashi Granola bars and consider carrying more varieties, like <a href="http://kelloggsspecialtychannels.com/Home/ProductDetails/22551/kashi-chewy-granola-bars-trail-mix-product?segid=0">Kashi&reg; Chewy Granola Bars Trail Mix</a>.</p>
+                        <p>Distributor X carries Kashi Chewy Granola bars Trail Mix, item numbers .</p>
+                    </td>
+                    <td>2017-04-18</td>
+                    <td>Call X to order Kashi Chewy Granola Bars</td>
+                    <td><a href="insights/000006/2017-04-18.html" role="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye"></i></a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+
+
+            <tr class="display table-success" data-id="firXNTezigcmHGxxy">
+              <td><img src="images/racks/mpiresearch-thumb.jpg" class="rounded float-left" \></td>
+              <td>Active</td>
+              <td>Wifi</td>
+              <td nowrap>2017-04-17 17:44</td>
+              <td><a href="https://organize.redpost.co/market/oLAkrfhnipKSnuNyD/locations/pu8yz2KFvHqjJAMRB/edit">54943 N Main St<br>Mattawan, MI<br> United States</a></td>
+              <td><a href="https://organize.redpost.co/displays/firXNTezigcmHGxxy">MPI Research</a></td>
+              <td nowrap>
+                <a href="#" role="button" aria-pressed="true" id="000005-toggle" class="btn btn-outline-primary btn-sm"><i class="fa fa-info-circle"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="000005-toggle2" class="btn btn-outline-primary btn-sm"><i class="fa fa-heart"></i></a>
+                <a href="shelves/000005.html" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-area-chart"></i></a>
+                <a href="audience.html?location=pu8yz2KFvHqjJAMRB" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-users"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="000005-toggle3" class="btn btn-outline-primary btn-sm"><i class="fa fa-lightbulb-o"></i></a>
+              </td>
+            </tr>
+            <tr class="storeDetails" id="000005-insights">
+              <td colspan="1">
+                <h5>Summary</h5>
+                <p>Receptive, helpful manager open to new product ideas</p>
+              </td>
+              <td colspan="6">
+                <h5><i class="fa fa-lightbulb-o"></i> Insights</h5>
+                <table class="table-sm">
+                  <tr>
+                    <th>Photo</th>
+                    <th>Advice (under 80 words)</th>
+                    <th>Date</th>
+                    <th>Call to Action</th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td><img src="insights/000005/2017-04-18.jpg" class="rounded" style="width:200px;"></td>
+                    <td>
+                        <h2>Cheezits Top Sellers</h2>
+                        <p>Cheezits are the #1 snack food we sell, and they're missing from your cafeteria</p>
+                        <p>Idea: Order the most popular flavors of Cheezits, Original and White Cheddar, and see how much you sell. Replace the Chex Mix Muddy Buddies, which do not appear to be selling well, with the #1 snack your customers crave.</p>
+                        <p>Distributor X carries Original and White Cheddar Cheezits, item numbers X.</p>
+                    </td>
+                    <td>2017-04-18</td>
+                    <td>Call distributor X to order</td>
+                    <td><a href="insights/000005/2017-04-18.html" role="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye"></i></a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+
+
+            <tr class="display table-success" data-id="sSSRRg5MaPQvgBsk3">
+              <td><img src="images/racks/powermarket-thumb.jpg" class="rounded float-left" \></td>
+              <td>Active</td>
+              <td>OK</td>
+              <td nowrap>2017-04-17 17:44</td>
+              <td><a href="https://organize.redpost.co/market/oLAkrfhnipKSnuNyD/locations/2CbecGzkgwDCvdS8a/edit">572 W Lake St<br>Elmhurst, IL<br> United States</a></td>
+              <td><a href="https://organize.redpost.co/displays/sSSRRg5MaPQvgBsk3">Power Market - W Lake St</a></td>
+              <td nowrap>
+                <a href="#" role="button" aria-pressed="true" id="000002-toggle" class="btn btn-outline-primary btn-sm"><i class="fa fa-info-circle"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="000002-toggle2" class="btn btn-outline-primary btn-sm"><i class="fa fa-heart"></i></a>
+                <a href="shelves/000002.html" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-area-chart"></i></a>
+                <a href="audience.html?location=2CbecGzkgwDCvdS8a" role="button" aria-pressed="true" class="btn btn-outline-primary btn-sm"><i class="fa fa-users"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="000002-toggle3" class="btn btn-outline-primary btn-sm"><i class="fa fa-lightbulb-o"></i></a>
+              </td>
+            </tr>
+            <tr class="storeDetails" id="000002-insights">
+              <td colspan="1">
+                <h5>Summary</h5>
+                <p>Manager very busy, store is clean but crowded, likes to buy product from Sam's Club. Difficult to keep shelves stocked.</p>
+              </td>
+              <td colspan="6">
+                <h5><i class="fa fa-lightbulb-o"></i> Insights</h5>
+                <table class="table-sm">
+                  <tr>
+                    <th>Photo</th>
+                    <th>Advice (under 80 words)</th>
+                    <th>Date</th>
+                    <th>Call to Action</th>
+                    <th></th>
+                  </tr>
+                  <tr>
+                    <td><img src="insights/000002/2017-04-18.jpg" class="rounded" style="width:200px;"></td>
+                    <td>
+                      <h2>Original Pringles Top Sellers</h2>
+                      <p>Original Pringles are the top selling Pringles flavor in c-stores. It looks like you've been sold out for the past two weeks of the small and large cans.</p>
+                      <p>Idea: Order Original Pringles more often to make sure customers can get the #1 flavor they love.</p>
+                      <p>Distributor X carries Original Pringles, item numbers X.</p>
+                    </td>
+                    <td>2017-04-18</td>
+                    <td>Call X to Order Today</td>
+                    <td><a href="insights/000002/2017-04-18.html" role="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-eye"></i></a></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+
+
+            <tr class="display table-info" data-id="88BfBstDqDW8pTJSg">
+              <td></td>
+              <td>Install pending 4/30/17</td>
+              <td></td>
+              <td nowrap></td>
+              <td><a href="https://organize.redpost.co/market/oLAkrfhnipKSnuNyD/locations/Aajr5rExjnpy8vnic/edit">400 N Wall St<br>Kankakee, IL 60901<br> USA</a></td>
+              <td><a href="https://organize.redpost.co/displays/88BfBstDqDW8pTJSg">Riverside Medical Center (Kankakee, IL)</a></td>
+              <td nowrap>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-info-circle"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="-toggle2" class="btn btn-outline-secondary btn-sm"><i class="fa fa-heart"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-area-chart"></i></a>
+                <a href="audience.html?location=Aajr5rExjnpy8vnic" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-users"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-lightbulb-o"></i></a>
+              </td>
+            </tr>
+            <tr class="display table-info" data-id="88BfBstDqDW8pTJSg">
+              <td></td>
+              <td>Eric scouting 4/20/17</td>
+              <td></td>
+              <td nowrap></td>
+              <td>151 E Upper Wacker Dr<br>Chicago, IL 60601</td>
+              <td>Hyatt Regency Downtown (Chicago, IL)</td>
+              <td nowrap>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-info-circle"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="-toggle2" class="btn btn-outline-secondary btn-sm"><i class="fa fa-heart"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-area-chart"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-users"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-lightbulb-o"></i></a>
+              </td>
+            </tr>
+            <tr class="display table-info" data-id="88BfBstDqDW8pTJSg">
+              <td></td>
+              <td>Sashi working on</td>
+              <td></td>
+              <td nowrap></td>
+              <td>222 W Merchandise Mart Plaza<br>Chicago, IL 60654</td>
+              <td>Kelloggs Merchandise Mart (Chicago, IL)</td>
+              <td nowrap>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-info-circle"></i></a>
+                <a href="#" role="button" aria-pressed="true" id="-toggle2" class="btn btn-outline-secondary btn-sm"><i class="fa fa-heart"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-area-chart"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-users"></i></a>
+                <a href="#" role="button" aria-pressed="true" class="btn btn-outline-secondary btn-sm"><i class="fa fa-lightbulb-o"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="jquery.zoom.min.js"></script>
+    <script src="jquery-dateFormat.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#info").click(function() { $("#details").toggle(100); });
+        $("#000004-toggle3").click(function(e) { e.preventDefault(); $("#000004-insights").toggle(100);  });
+        $("#000004-toggle2").click(function(e) { e.preventDefault(); $("#000004-heartbeat").toggle(100); });
+        $("#000004-toggle").click(function(e) { e.preventDefault(); $("#000004-details").toggle(100); });
+        $("#000005-toggle3").click(function(e) { e.preventDefault(); $("#000005-insights").toggle(100); });
+        $("#000005-toggle2").click(function(e) { e.preventDefault(); $("#000005-heartbeat").toggle(100); });
+        $("#000005-toggle").click(function(e) { e.preventDefault(); $("#000005-details").toggle(100); });
+        $("#000006-toggle3").click(function(e) { e.preventDefault(); $("#000006-insights").toggle(100); });
+        $("#000006-toggle2").click(function(e) { e.preventDefault(); $("#000006-heartbeat").toggle(100); });
+        $("#000006-toggle").click(function(e) { e.preventDefault(); $("#000006-details").toggle(100); });
+        $("#000002-toggle3").click(function(e) { e.preventDefault(); $("#000002-insights").toggle(100); });
+        $("#000002-toggle2").click(function(e) { e.preventDefault(); $("#000002-heartbeat").toggle(100); });
+        $("#000002-toggle").click(function(e) { e.preventDefault(); $("#000002-details").toggle(100); });
+      });
+    </script>
+
+  </body>
+</html>
+
