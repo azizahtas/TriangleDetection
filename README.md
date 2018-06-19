@@ -44,7 +44,7 @@ Configuration Information
 > Note:
 Also known as Target 5
 
-### 4. Target A
+### 4. Target B
 Configuration Information
 
 | Attribute | Value |
