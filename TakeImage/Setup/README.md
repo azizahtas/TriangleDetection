@@ -14,11 +14,17 @@ $ sudo apt-get upgrade
 $ sudo apt-get dist-upgrade
 $ sudo rpi-update
 ```
+
 ### Install Packages
 ```sh
 $ sudo apt-get install fswebcam
 $ sudo apt-get install gnome-schedule
 $ sudo apt-get install libusb-dev
+```
+
+> If Unable to locate package error occurs run the following command again
+```sh
+$ sudo apt-get update
 ```
 ### Setup Directory Structure
 Create Folder With rack name. ex: Overland, Target 2
