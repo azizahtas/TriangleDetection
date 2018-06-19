@@ -16,7 +16,7 @@ key_secret="j0MfFgtIAMu5ooA9JQLM38zaHHIT1ukIdG65grik"
 bucket="my-rack"
 content_type="application/octet-stream"
 #fsopts="-S 1 -D 1 --font sans:72 --banner-colour 0xFF$racknum --line-colour 0xFF000000 -r 2592x1944 --jpeg 65"
-fsopts="-S 5 -D 3 --font sans:72 --no-banner -r 2592x1944 --jpeg 65"
+fsopts="-S 5 -D 3 --font sans:72 --no-banner -r 1280x720 --jpeg 65"
 
 count=0
 for i in "${ports[@]}"
@@ -35,31 +35,3 @@ do
   count=$[count + 1]
   rm -f /tmp/${shelves[$count]}.jpg
 done
-
-# optionally post to Slack channel  
-#curl -X POST --data-urlencode "payload={'text':'Power Market #$racknum $Y/$M/$D\n$url0\n$url1\n$url2\n$url3\n$url4'}" https://hooks.slack.com/services/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
-
-#!/bin/bash
-#get-snaps.sh
-'''
-
-racknum=000000
-Y=$(date -d "$ds" -u +"%Y")
-M=$(date -d "$ds" -u +"%m")
-D=$(date -d "$ds" -u +"%d")
-MM=$(date -u +"%M")
-H=$(date -u +"%H")
-date="$(LC_ALL=C date -u +"%a, %d %b %Y %X %z")"
-key_id="AKIAIEIVWAMZYPASVYPA"
-key_secret="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"
-bucket="clever-rack"
-content_type="application/octet-stream"
-camOpts="-S 20 -D 1 --font sans:55 --banner-colour 0xFF000000 --line-colour 0xFF000000 -r 640x480 --jpeg 65"
-
-fswebcam --device /dev/video0 $camOpts /tmp/0.jpg
-md5="$(openssl md5 -binary < "/tmp/0.jpg" | base64)"
-sig="$(printf "PUT\n$md5\n$content_type\n$date\n/$bucket/$racknum/$Y/$M/$D/0-$H$MM.jpg" | openssl sha1 -binary -hmac "$key_secret" | base64)"
-curl --connect-timeout 20 -T /tmp/0.jpg http://$bucket.s3.amazonaws.com/000000/$Y/$M/$D/0-$H$MM.jpg -H "Date: $date" -H "Authorization: AWS $key_id:$sig" \
--H "Content-Type: $content_type" -H "Content-MD5: $md5" > /tmp/S3
-
-'''

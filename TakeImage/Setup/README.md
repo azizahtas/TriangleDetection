@@ -7,7 +7,7 @@ This document is created for reference for setting up triangle detection racks.
 > 3.More detailed steps will be added later
 
 ### Update Raspbian by following commands
-Note: Execute One By One
+> Note: Execute One By One
 ```sh
 $ sudo apt-get update
 $ sudo apt-get upgrade
@@ -40,6 +40,20 @@ $ gcc -o hub-ctrl hub-ctrl.c -lusb
 ```
 $ chmod 755 camera.sh
 ```
+> Note :
+Test Cameras Before using the scheduler.
+There needs to be few code changes that has to be done for the program to work.
+Make sure everything is working before adding it to a scheduler.
+Test Camera With The following command
+```sh
+$ fswebcam --device /dev/video0 -S 5 -D 3 --font sans:72 --no-banner -r 1280x720 --jpeg 65 image0.jpg
+```
+> Note :
+Change Video Number and image name accordingly.
+-S is Skip Frames
+-D is Delay
+-r is Resolution
+Images will be saved in the same directory where you run this command!
 
 ### Setup Scheduler
 1. Raspberry Start menu > System Tools > Scheduled tasks
@@ -57,3 +71,11 @@ $ sudo bash /home/pi/${rack name folder}/camera.sh
 ```
 > Note:
 > The above will run camera.sh every 15minutes if you want to increase the minutes simply change the above to what ever minutes you want
+
+### Util commands
+| Command | Note |
+| ------- | -------|
+| ls /dev/video* | List All Video Devices Connected |
+| lsusb | List All USB devices Connected |
+| ls -l /dev/v4l/by-path/ | List Video Devices By path |
+| ls -lrt | Check File Permissions |
