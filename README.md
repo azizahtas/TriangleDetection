@@ -40,6 +40,8 @@ Configuration Information
 | Name      | T1775 TARGET-DL-1 |
 | Address   | 16731 Coit Rd, Dalls, TX 75248 |
 | Shelves   | 4 |
+| Hotspot   | KProject |
+| Device    |   ATNT   |
 | Shelf Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/shelves/000005.html) |
 | Traffic Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/targets/target5.html) |
 > Note:
@@ -54,6 +56,8 @@ Configuration Information
 | Name      | TARGET-DL-2 |
 | Address   | 16731 Coit Rd, Dalls, TX 75248 |
 | Shelves   | 4 |
+| Hotspot   | KProject |
+| Device    |   ATNT   |
 | Shelf Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/shelves/000006.html) |
 | Traffic Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/targets/target6.html) |
 > Note:
