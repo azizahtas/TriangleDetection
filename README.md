@@ -1,5 +1,7 @@
 # Image Triangle Detection
 
+## Dashboard Is now on [Heroku](https://smartrackapi.herokuapp.com/)
+
 ## List Of Racks Setup And Their Configurations
 
 ### 1. Overland Park
@@ -11,9 +13,8 @@ Configuration Information
 | Name      | T1757 Overland Park |
 | Address   | 12200 Blue Valley PKVY, Overland Park, KS |
 | Shelves   | 4 |
-| Shelf Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/shelves/000003.html) |
-| Traffic Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/targets/target3.html) |
-| Send Report For Yesterday | [Send](https://https://s3.amazonaws.com/my-rack/dashboard/shelves/000003.html) |
+| Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000003) |
+| Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000003) |
 > Note:
 Also known as Target 3
 
@@ -26,8 +27,8 @@ Configuration Information
 | Name      | T1756 Olathe |
 | Address   | 15345 W 119TH ST, Olathe, KS |
 | Shelves   | 4 |
-| Shelf Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/shelves/000004.html) |
-| Traffic Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/targets/target4.html) |
+| Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000004) |
+| Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000004) |
 > Note:
 Also known as Target 4
 
@@ -42,8 +43,8 @@ Configuration Information
 | Shelves   | 4 |
 | Hotspot   | KProject |
 | Device    |   ATNT   |
-| Shelf Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/shelves/000005.html) |
-| Traffic Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/targets/target5.html) |
+| Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000005) |
+| Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000005) |
 > Note:
 Also known as Target 5
 
@@ -58,7 +59,7 @@ Configuration Information
 | Shelves   | 4 |
 | Hotspot   | KProject |
 | Device    |   ATNT   |
-| Shelf Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/shelves/000006.html) |
-| Traffic Dashboard | [Dashboard](https://s3.amazonaws.com/my-rack/dashboard/targets/target6.html) |
+| Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000006) |
+| Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000006) |
 > Note:
 Also known as Target 6
