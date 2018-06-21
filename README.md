@@ -16,7 +16,7 @@ Configuration Information
 | Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000003) |
 | Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000003) |
 > Note:
-Also known as Target 3
+Also known as Target 1
 
 ### 2. Olathe
 Configuration Information
@@ -30,7 +30,7 @@ Configuration Information
 | Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000004) |
 | Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000004) |
 > Note:
-Also known as Target 4
+Also known as Target 2
 
 ### 3. Target A
 Configuration Information
@@ -45,8 +45,6 @@ Configuration Information
 | Device    |   ATNT   |
 | Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000005) |
 | Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000005) |
-> Note:
-Also known as Target 5
 
 ### 4. Target B
 Configuration Information
@@ -61,5 +59,3 @@ Configuration Information
 | Device    |   ATNT   |
 | Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000006) |
 | Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000006) |
-> Note:
-Also known as Target 6
