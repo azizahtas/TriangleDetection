@@ -47,7 +47,7 @@
 ```sh
 --undistort \"-0.00002,0.0000000004,0.00006,0.00006\" -b \"0,50,1228,247,1228,695,0,720\" --paf 7 --arcmin 45 --legmax 80 --legmin 10 --legvar 30 --areamin 100 --areamax 1000 --expected 333
 ```
-## 2. Olathe
+## 2. Target A
 ### Shelf 0
 ```sh
 --undistort \"-0.00002,0.0000000004,0.00006,0.00006\" -b \"0,0,1280,0,1280,650,0,650\" --paf 7 --arcmin 45 --legmax 80 --legmin 10 --legvar 30 --areamin 100 --areamax 1000 --expected 333
