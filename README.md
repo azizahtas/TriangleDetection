@@ -7,15 +7,20 @@
 ### 1. Overland Park
 Configuration Information
 
-| Attribute | Value |
-| --------- | -------- |
-| Rack No   | 000003 |
-| Name      | T1757 Overland Park |
-| Address   | 12200 Blue Valley PKVY, Overland Park, KS |
-| Shelves   | 4 |
-| Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000003) |
-| Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000003) |
+| Attribute | Value | Instructions |
+| --------- | -------- | ---------- |
+| Rack No   | 000003 | |
+| Name      | T1757 Overland Park | |
+| Address   | 12200 Blue Valley PKVY, Overland Park, KS | |
+| Shelves   | 4 | |
+| Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000003) | |
+| Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000003) | |
+| Send Yesterday Report | [Send Report](https://smartrackapi.herokuapp.com/shelves/api/sendreport/yesterday/000003) | |
+| Show Report Or Any day Report | [Show Report](https://smartrackapi.herokuapp.com/shelves/api/showreport/yesterday/000003) | This Will Show report but will not send |
 > Note:
+To Send Report of any day use the below link
+ https://smartrackapi.herokuapp.com/shelves/api/sendreport/${days_before_yesterday}/${racknum}
+  days before yesterday could be -> 0 -> Yesterday, 1 -> Day Before Yesterday, 2 -> 2 Days Before Yesterday And So On
 Also known as Target 1
 
 ### 2. Olathe
