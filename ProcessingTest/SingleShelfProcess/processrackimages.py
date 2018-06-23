@@ -55,9 +55,10 @@ def main(argv):
   with open( 'rackDetails.json' ) as jsonData:
     rackDetails = json.load( jsonData )
     jsonData.close()
-  '''
+  
   # grab images from S3
   path = rackNum + "/" + subjectYear + "/" + subjectMonth + "/" + subjectDay
+  '''
   sys.stdout.write(path + " ")
   command = "aws s3 sync s3://my-rack/" + path + " /tmp/s3/" + path
   try:
@@ -80,15 +81,15 @@ def main(argv):
     shelf_num = filenameParts[0]
     date_recorded = subjectYear + "-" + subjectMonth + "-" + subjectDay + " " + filenameParts[1][:-4]
     command = '''python shelfspace.py {0} -i "/tmp/s3/{1}/{2}" '''.format(rackDetails[rackNum][filenameParts[0]]["args"],path,filename)
-    print('\n'+filename);
+    print('\n'+command)
     try:
         process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
         process.wait(30)
     except subprocess.TimeoutExpired:
       pass
-    
+    #print(process.stdout.read())
     detectionDetails = json.load( process.stdout )
-    print(detectionDetails)
+   
     # lookup last value if we don't already have one
     if shelf_num not in last_value:
       cursor.execute(
@@ -106,7 +107,7 @@ def main(argv):
 
     #calculate analytics
     low_stock = True if detectionDetails["PercentFull"] < .4 else False
-    '''cursor.execute(
+    cursor.execute(
     #sys.stdout.write(
       "\nINSERT INTO shelf_stock (racknum, shelf_num, raw_output, triangles_found, triangles_expected, percent_full, date_recorded, url, low_stock, delta) VALUES " +
       "('" + rackNum 
@@ -125,7 +126,7 @@ def main(argv):
     #sys.stdout.write(str(shelf_num)+":"+str(date_recorded)+" last_value["+shelf_num+"]="+str( last_value[shelf_num] )+"-"+str( detectionDetails["PercentFull"] )+"=  "+str( detectionDetails["PercentFull"] - last_value[shelf_num] )+"\n")
     # record last value
     last_value[shelf_num] = detectionDetails["PercentFull"]
-    conn.commit()'''
+    conn.commit()
 
   #cursor.close()
   conn.close()
