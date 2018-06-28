@@ -15,8 +15,8 @@ Configuration Information
 | Shelves   | 4 | |
 | Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000003) | |
 | Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000003) | |
-| Send Yesterday Report | [Send Report](https://smartrackapi.herokuapp.com/shelves/api/sendreport/yesterday/000003) | |
-| Show Report Or Any day Report | [Show Report](https://smartrackapi.herokuapp.com/shelves/api/showreport/yesterday/000003) | This Will Show report but will not send |
+| Send Yesterday Report | [Send Report](https://smartrackapi.herokuapp.com/shelves/api/sendreport/pre/yesterday/000003) | |
+| Show Report Yesterday Report | [Show Report](https://smartrackapi.herokuapp.com/shelves/api/showreport/pre/yesterday/000003) | This Will Show report but will not send |
 > Note:
 To Send Report of any day use the below link
  https://smartrackapi.herokuapp.com/shelves/api/sendreport/${days_before_yesterday}/${racknum}
