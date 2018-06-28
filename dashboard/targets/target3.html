@@ -22,7 +22,22 @@
   </head>
 
   <body>
-
+    <style>
+		.traffic-title {
+			background-color: #e8e8e8; 
+			padding: 10px; 
+			color:#c12929; 
+			margin-top: 20px;
+		}
+		.traffic-box {
+			border: 1px solid rgba(0,0,0,.15); 
+			padding: 21px; 
+			margin-top: 20px; 
+			text-align: center; 
+			width: 200px; 
+			height: 147px;
+		}
+	</style>
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
       <a class="navbar-brand" href="#"><img src="Kelloggs-logo.svg" alt="Kellogg's"> Virtual Store Visit</a>
       <ul class="nav navbar-nav">
@@ -47,6 +62,7 @@
         <form class="form-inline">
 
           <div class="form-group">
+           <input type="hidden" id="rackNum" value="000003">
             <label for="startDate">From</label>
             <input class="form-control" type="date" value="2016-11-10" id="startDate">
           </div>
@@ -57,48 +73,29 @@
           <button type="button" onClick="fetchDateRange()" class="btn btn-primary">View</button>
           <i class="fa fa-gear fa-spin hidden-xl-down" style="font-size:30px"></i>
         </form>
-        <div calss="row">
-         <div class="col-md-12">
-          	<h2 style="background-color: #e8e8e8; padding: 10px; color:#c12929; margin-top: 20px;">People Count and Dwell Time</h2>
-         </div>
-          <div class="col-md-2" style="
-          border: 1px solid rgba(0,0,0,.15); padding: 21px; margin-top: 20px; text-align: center; width: 200px; height: 147px;">
-          	<h2 id="counter">0</h2> <br>
-          	<h5>People Count</h5>
-          </div>
-           <div class="col-md-2" style="border: 1px solid rgba(0,0,0,.15); padding: 21px; margin-top: 20px; margin-bottom: 20px; text-align: center; width: 200px; height: 147px; margin-left: 10px;">
-          	<h2 id="avgTime">0</h2>
-          	<h5>Dwell Time</h5>
-          </div>
-          <!--
-          <div class="col-md-3" style="border: 1px solid rgba(0,0,0,.15); padding: 30px; margin-top: 20px; margin-left: 10px; text-align: center; width: 300px; height: 200px;">
-          	<h4>Date Range</h4>
-          	<h5 id="range">2018-06-12 00:00 <br>To <br>2018-06-12 23:59</h5>
-          </div>
-          
-			<div class="col-md-8" style="margin-top: 30px;">
-       		<h2 style="text-align: center">Todays Traffic</h2>
-        		<canvas id="todayChart" style="width:100%;"></canvas>
-          	</div>
-          	<div class="col-md-2" style="margin-top: 30px;">
-          		<button id="#resetButton" class="btn btn-warning">Reset</button>
-          		<i class="fa fa-gear fa-spin hidden-xl-down" style="font-size:30px"></i>
-          	</div>
-          	<div class="col-md-8">
-          	<h2 style="text-align: center">Todays Traffic Hourly</h2>
-        		<canvas id="hourlyChart" style="width:100%;"></canvas>
-          	</div>
-          	-->
-          	<div class="col-md-8">
-          	<h2 style="background-color: #e8e8e8; padding: 10px; color:#c12929;">Dwell Time (in seconds)</h2>
-        		<canvas id="dateRangeChart" style="width:100%;"></canvas>
-          	</div>
-          	<div class="col-md-8">
-          	<h2 style="background-color: #e8e8e8; padding: 10px; color:#c12929;">Foot Traffic Count Hourly</h2>
-        		<canvas id="dateRangeHourlyChart" style="width:100%;"></canvas>
-          	</div>
+ 		<div calss="row">
+			 <div class="col-md-12 traffic-title" >
+				<h2>People Count and Dwell Time</h2>
+			 </div>
+			<div class="row">
+			  <div class="col-md-2 traffic-box">
+				<h2 id="counter">0</h2> <br>
+				<h5>People Count</h5>
+			  </div>
+			   <div class="col-md-2 traffic-box" style="margin-left: 10px;">
+				<h2 id="avgTime">0</h2>
+				<h5>Dwell Time</h5>
+			  </div>
+			</div>
+			<div class="col-md-12">
+			<h2 class="traffic-title">Dwell Time (in seconds)</h2>
+				<canvas id="dateRangeChart"></canvas>
+			</div>
+			<div class="col-md-12">
+			<h2 class="traffic-title">Foot Traffic Count Hourly</h2>
+				<canvas id="dateRangeHourlyChart"></canvas>
+			</div>
         </div>
-        <div class="row" id="audience">
           
         </div>
 
@@ -116,468 +113,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
     <script src="../lodash.min.js"></script>
     <script src="../luxon.min.js"></script>
-    <script type="text/javascript">
+    <script src="./target.js"></script>
+    <script>
 
-	  var racknum = '000003';
-      var api = {
-        local : {
-          host : 'http://192.168.1.105:3001',
-        },
-        online : {
-          host : 'https://smartrackapi.herokuapp.com',
-        }
-      }
-	  
-	  var used_host = api.online.host;
-      var mqtt;
-      var reconnectTimeout = 2000;
-      var host = "smartrackmqtt.herokuapp.com";
-      var port = 80;
-      var subTo = "motiondetect/target/"+racknum;
-		var ctx = null;
-		var chartInstance = null;
-		var ctxRange = null;
-		var chartInstanceRange = null;
-		var ctxHourChart = null;
-		var chartHourInstance = null;
-		var ctxHourChartRange = null;
-		var chartHourRangeInstance = null;
-      function onConnect() {
-        console.log("Connected ");
-        mqtt.subscribe(subTo);
-      }
-
-      function onFailure(message){
-        console.log("Connection Attempt To Host "+host+" Failed");
-        setTimeout(MQTTconnect, reconnectTimeout);
-      }
-
-      function onMessageArrived(msg){
-		 var msgData = msg.payloadString.time;
-        out_msg = "Message Recieved "+msg.payloadString+"<br>"
-        out_msg += "Message Recieved Topic "+msg.destinationName;
-        console.log(out_msg);
-		  addData(chartInstance, new Date(), msgData);
-      }
-		
-      function MQTTconnect(){
-        console.log("connecting to "+host+":"+port);
-        mqtt = new Paho.MQTT.Client(host,port,"BrowserClient"+Math.floor(Math.random()*10000+1));
-        var options = {
-          timeout: 3,
-          onSuccess: onConnect,
-          onFailure: onFailure
-        };
-        mqtt.onMessageArrived = onMessageArrived
-        mqtt.connect(options);
-      }
-
-      // configure charts
-      Chart.defaults.global.legend.display = false;
-      Chart.defaults.global.animation = false;
-      var currData = new Array();
-
-      function updateTodayChart(json) {
-		  if(chartInstance) chartInstance.destroy();
-          var labels = new Array();
-          var data = new Array();
-		  var count = 0;
-		  var sum = 0;
-          $.each(json.data, function(i, day) {
-		    var seconds = parseInt( day['time_recorded'] ) ;
-			labels.push( sanatizeTimeAndFormat(day['local_time']));
-            data.push( seconds );
-			count++;
-			sum += parseInt(day['time_recorded']);
-          });
-		  var avg = Math.round( sum / count);
-		  if(avg < 0) avg = 0;
-		  $("#avgTime").html(avg);
-		  $("#counter").html(count);
-         ctx = $("#todayChart").get(0).getContext("2d");
-         chartInstance = new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: labels,
-              datasets: [{
-                data: data,
-				  label: "Time Spent",
-				  backgroundColor : 'rgb(54, 162, 235)'
-              }]
-              // datasets: [ { data: data } ]
-            },
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-					  min: 0,
-					  stepSize: 20
-                  }
-                }],
-                xAxes: []
-              }
-            }
-        });
-        hideSpinner();
-      }
-		
-	  function updateDateRangeChart(json) {
-		   var labels = new Array();
-          var data = new Array();
-		  var count = 0;
-		  var sum = 0;
-          $.each(json.data, function(i, day) {
-		    var seconds = parseInt( day['time_recorded'] ) ;
-			labels.push(sanatizeTimeAndFormat(day['local_time']));
-            data.push( seconds );
-			count++;
-			sum += parseInt(day['time_recorded']);
-          });
-		  var avg = Math.round( sum / count);
-		  if(avg < 0) avg = 0;
-		  $("#avgTime").html(avg);
-		  $("#counter").html(count);
-		  
-		  if(chartInstanceRange) chartInstanceRange.destroy();
-         ctxRange = $("#dateRangeChart").get(0).getContext("2d");
-         chartInstanceRange = new Chart(ctxRange, {
-            type: 'line',
-            data: {
-              labels: labels,
-              datasets: [{
-                data: data,
-				  label: "Time Spent",
-				  backgroundColor : 'rgb(54, 162, 235)'
-              }]
-              // datasets: [ { data: data } ]
-            },
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-					  min: 0,
-					  stepSize: 20
-                  }
-                }],
-                xAxes: []
-              }
-            }
-        });
-        hideSpinner();
-	  }
-		function updateHourlyRangeChart(json) {
-		  if(ctxHourChartRange) ctxHourChartRange.destroy();
-		  var hourlyList = [];
-		  $.each(json.data, function(i, day) {
-			var current = day['local_time'];
-			var w = current.substr(0,current.lastIndexOf('.'));
-		    var a = new Date(w) ;
-			var hr = a.getHours();
-			hourlyList.push(hr);
-          });
-		  var finalData = _.groupBy(hourlyList, function(hours){
-			return hours;
-		  });
-		  var labels = new Array();
-          var data = new Array();
-          $.each(finalData, function(key, val) {
-			  var prefix = parseInt(key)>11?'PM':'AM';
-			labels.push(key+prefix);
-            data.push(val.length);
-          });
-         ctxHourChartRange = $("#dateRangeHourlyChart").get(0).getContext("2d");
-         ctxHourChartRange = new Chart(ctxHourChartRange, {
-            type: 'line',
-            data: {
-              labels: labels,
-              datasets: [{
-                data: data,
-				  label: "Count",
-				  backgroundColor : 'rgb(54, 162, 235)'
-              }]
-              // datasets: [ { data: data } ]
-            },
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-					  min: 0,
-					  stepSize: 10
-                  }
-                }],
-                xAxes: []
-              }
-            }
-        });
-	  }
-		
-	  function updateHourlyChart(json) {
-		  if(chartHourInstance) chartHourInstance.destroy();
-		  var hourlyList = [];
-		  $.each(json.data, function(i, day) {
-			var current = day['local_time'];
-			var w = current.substr(0,current.lastIndexOf('.'));
-		    var a = new Date(w) ;
-			var hr = a.getHours();
-			hourlyList.push(hr);
-          });
-		  var finalData = _.groupBy(hourlyList, function(hours){
-			return hours;
-		  });
-		  var labels = new Array();
-          var data = new Array();
-          $.each(finalData, function(key, val) {
-			  var prefix = parseInt(key)>11?'PM':'AM';
-			labels.push(key+prefix);
-            data.push(val.length);
-          });
-         ctxHourChart = $("#hourlyChart").get(0).getContext("2d");
-         chartHourInstance = new Chart(ctxHourChart, {
-            type: 'line',
-            data: {
-              labels: labels,
-              datasets: [{
-                data: data,
-				  label: "Count",
-				  backgroundColor : 'rgb(54, 162, 235)'
-              }]
-              // datasets: [ { data: data } ]
-            },
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-					  min: 0,
-					  stepSize: 10
-                  }
-                }],
-                xAxes: []
-              }
-            }
-        });
-	  }
-      function getTodayURL() {
-		  return used_host + "/api/target/pirmotion/today/" + racknum;
-      }
-	  function getDateRangeURL() {
-		  return used_host + "/api/target/pirmotion/" + racknum;
-      }
-
-      function hideSpinner () {
-        $("i.fa-gear").addClass("hidden-xl-down");
-      }
-
-      function showSpinner () {
-        $("i.fa-gear").removeClass("hidden-xl-down");
-      }
-		
-	  function ini() {
-		var t = new Date();
-        $("#endDate").val(getToday());
-        $("#startDate").val(getToday());
-        $("#info").click(function() { $("#details").toggle(100); });
-		var utcDate1 = getToday()+"T00:01:00";
-		var utcDate2 = getToday()+"T23:59:00";
-		$("#range").html(getTidyDate(utcDate1)+"<br> To  <br>"+getTidyDate(utcDate2));
-	  }
-
-      function fetchTodayData() {
-			var utcDate1 = getToday()+"T00:01:00";
-			var utcDate2 = getToday()+"T23:59:00";
-		  	$("#range").html(getTidyDate(utcDate1)+"<br> To  <br>"+getTidyDate(utcDate2));
-			var range = {
-				startDate : utcDate1,
-				endDate : utcDate2
-			}
-        $.ajax({
-          cache : false,
-          type : 'POST',
-          url: getDateRangeURL(),
-          dataType: "json",
-			data: JSON.stringify(range),
-          contentType: 'application/json',
-          xhrFields: {
-            // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
-            // This can be used to set the 'withCredentials' property.
-            // Set the value to 'true' if you'd like to pass cookies to the server.
-            // If this is enabled, your server must respond with the header
-            // 'Access-Control-Allow-Credentials: true'.
-            withCredentials: false
-          },
-          headers : {
-            "accept": "application/json",
-          },
-          success: function (data) {
-            console.log(JSON.stringify(data));
-            if(data.err) console.log('Serverside Error');
-            else {
-				updateTodayChart(data);
-				updateHourlyChart(data);
-			}
-          },
-          error: function(data) {
-            console.log("Error");
-            console.log(data);
-          }
-        });
-        return false;
-      }
-
-		function resetData() {
-			showSpinner ();
-			$.ajax({
-			  cache : false,
-			  type : 'DELETE',
-			  url: getTodayURL(),
-			  dataType: "json",
-			  contentType: 'application/json',
-			  xhrFields: {
-				// The 'xhrFields' property sets additional fields on the XMLHttpRequest.
-				// This can be used to set the 'withCredentials' property.
-				// Set the value to 'true' if you'd like to pass cookies to the server.
-				// If this is enabled, your server must respond with the header
-				// 'Access-Control-Allow-Credentials: true'.
-				withCredentials: false
-			  },
-			  headers : {
-				"accept": "application/json",
-			  },
-			  success: function (data) {
-				if(data.err) console.log('Serverside Error');
-				else fetchTodayData(data);
-				  hideSpinner ();
-			  },
-			  error: function(data) {
-				console.log("Error");
-				console.log(data);
-				  hideSpinner ();
-			  }
-			});
-			return false;
-		}
-		
-		function fetchDateRange() {
-			var date1 =  $("#startDate").val();
-			var date2 = $("#endDate").val();
-			var utcDate1 = date1+"T00:01:00"//getUtc(date1+"T00:01:00");
-			var utcDate2 = date2+"T23:59:00"//getUtc(date2+"T23:59:00");
-			$("#range").html(getTidyDate(utcDate1)+"<br> To  <br>"+getTidyDate(utcDate2));
-			var range = {
-				startDate : utcDate1,
-				endDate : utcDate2
-			}
-        $.ajax({
-          cache : false,
-          type : 'POST',
-          url: getDateRangeURL(),
-          dataType: "json",
-		  data: JSON.stringify(range),
-          contentType: 'application/json',
-          xhrFields: {
-            // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
-            // This can be used to set the 'withCredentials' property.
-            // Set the value to 'true' if you'd like to pass cookies to the server.
-            // If this is enabled, your server must respond with the header
-            // 'Access-Control-Allow-Credentials: true'.
-            withCredentials: false
-          },
-          headers : {
-            "accept": "application/json",
-          },
-          success: function (data) {
-            if(data.err) console.log('Serverside Error');
-            else {
-				updateDateRangeChart(data);
-				updateHourlyRangeChart(data);
-			}
-          },
-          error: function(data) {
-            console.log("Error");
-            console.log(data);
-          }
-        });
-        return false;
-      }
-		
-		function addData(chart, label, data) {
-			/*chart.data.labels.push(label);
-			chart.data.datasets.forEach((dataset) => {
-				dataset.data.push(data);
-			});
-			chart.update();
-			console.log("Added Data");*/
-		}
-
-      function getToday() {
-		var today = new Date();
-
-		var year = today.getFullYear();
-
-		var month = today.getMonth()+1;
-		month = (month < 10 ? "0" : '') + month;
-
-		var day = today.getDate();
-		day = (day < 10 ? "0" : '') + day;
-
-		return year + "-" + month + "-" + day;
-	  }
-		function getTodayFormated() {
-			var today = new Date();
-			return luxon.DateTime.local(today).toFormat('yyyy-mm-dd TT');
-		}
-      function getYesterday() {
-		var today = new Date();
-
-		var year = today.getFullYear();
-
-		var month = today.getMonth();
-		month = (month < 10 ? "0" : '') + month;
-
-		var day = today.getDate();
-		day = (day < 10 ? "0" : '') + day;
-
-		return year + "-" + month + "-" + day;
-	  }
-
-		function sanatizeTimeAndFormat(isoDateString) {
-			var san = isoDateString.substr(0,isoDateString.lastIndexOf('.'));
-			var dt = luxon.DateTime.fromISO(san).toFormat('LLL dd, T');
-			return dt;
-		}
-		/*function getUtc(isoDateString) {
-			var dat = luxon.DateTime.fromISO(isoDateString).plus({hour:5});
-			var hr = (dt.hour < 10 ? "0" : '') + dt.hour;
-			var min = (dt.minute < 10 ? "0" : '') + dt.minute;
-			return dt.year+"-"+dt.month+"-"+dt.day+" "+hr+":"+min+"";
-		}
-		*/function getTidyDate(isoDateString) {
-			var dt = luxon.DateTime.fromISO(isoDateString);
-			var hr = (dt.hour < 10 ? "0" : '') + dt.hour;
-			var min = (dt.minute < 10 ? "0" : '') + dt.minute;
-			return dt.year+"-"+dt.month+"-"+dt.day+" "+hr+":"+min;
-		}
-		
-		function autoRefreshPage()
-		{
-			window.location = window.location.href;
-		}
-		function autoRefreshPageData()
-		{
-			fetchTodayData();
-		}
-		
-	  //setInterval('autoRefreshPageData()', 10000);
-	  ini();
-      //fetchTodayData();
-	  MQTTconnect();
-		
-		/*
-		var st = luxon.DateTime.fromISO('2018-06-12T00:00:00').setZone('America/Chicago');
-	  	console.log(st.toLocaleString(luxon.DateTime.DATETIME_MED_WITH_SECONDS));
-		
-		*/
-    </script>
-    
+	</script>
   </body>
 </html>
 

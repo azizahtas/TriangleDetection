@@ -64,3 +64,8 @@ Configuration Information
 | Device    |   ATNT   |
 | Shelf Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/shelves/000006) |
 | Traffic Dashboard | [Dashboard](https://smartrackapi.herokuapp.com/traffic/000006) |
+
+### fswebcam Options Used
+```sh
+-S 30 -D 5 --font sans:50 --banner-colour 0xFF$racknum --line-colour 0xFF000000 -r 1920x1080 --jpeg 65
+```
