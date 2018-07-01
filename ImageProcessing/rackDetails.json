@@ -12,7 +12,8 @@
     },
     "3": {
       "args": "--undistort \"-0.00002,0.0000000004,0.00006,0.00006\" -b \"0,0,1920,0,1920,1080,0,1080\" --paf 7 --arcmin 45 --legmax 80 --legmin 10 --legvar 30 --areamin 100 --areamax 1000 --expected 300"
-    },
+    }
+  },
   "000001": {
     "name": "DG Prototype SmarTRack (Goodletttsville, TN)",
     "0": {
@@ -120,7 +121,5 @@
     "3": {
       "args": "--undistort \"-0.00002,0.0000000004,0.00006,0.00006\" -b \"0,0,1920,0,1920,1080,0,1080\" --paf 7 --arcmin 45 --legmax 80 --legmin 10 --legvar 30 --areamin 100 --areamax 1000 --expected 300"
     }
-  }
-
   }
 }
