@@ -6,11 +6,15 @@ import os
 import psycopg2
 from datetime import date, timedelta
 
-hostname = 'smart-rack.c7neg6roarnk.us-east-1.rds.amazonaws.com'
-username = 'azizahtas'
-password = 'azizahtas'
-database = 'smartrack'
-aws = 'https://my-rack.s3.amazonaws.com/'
+with open('settings.json') as jsonData:
+  settings = json.load(jsonData)
+  jsonData.close()
+
+hostname = settings.postgres.host
+username = settings.postgres.username
+password = settings.postgres.password
+database = settings.postgres.database
+aws = settings.aws.url
 
 # main program entry point - decode parameters, act accordingly
 def main(argv):
@@ -59,7 +63,7 @@ def main(argv):
   # grab images from S3
   path = rackNum + "/" + subjectYear + "/" + subjectMonth + "/" + subjectDay
   sys.stdout.write(path + " ")
-  command = "aws s3 sync s3://my-rack/" + path + " /tmp/s3/" + path
+  command = "aws s3 sync s3://"+settings.aws.bucket+"/" + path + " /tmp/s3/" + path
   try:
       process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
       process.wait(60)
@@ -67,7 +71,6 @@ def main(argv):
     pass
 
   # setup DB
-  conn_string = "host='smartracktestdb.cmayqsc08rkw.us-east-1.rds.amazonaws.com' dbname='smartracktestdb' user='smartrack' password='Wen$Qc8}E]2!F2ds'"
   conn = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
   cursor = conn.cursor()
 
