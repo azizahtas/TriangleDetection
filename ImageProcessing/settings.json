@@ -10,6 +10,6 @@
     "bucket" : "my-rack"
   },
   "server" : {
-    "host" : "http://localhost:3001"
+    "host" : "https://smartrackapi.herokuapp.com"
   }
 }
