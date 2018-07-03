@@ -10,11 +10,11 @@ with open('settings.json') as jsonData:
   settings = json.load(jsonData)
   jsonData.close()
 
-hostname = settings.postgres.host
-username = settings.postgres.username
-password = settings.postgres.password
-database = settings.postgres.database
-aws = settings.aws.url
+hostname = settings['postgres']['hostname']
+username = settings['postgres']['username']
+password = settings['postgres']['password']
+database = settings['postgres']['database']
+aws = settings['s3']['url']
 
 # main program entry point - decode parameters, act accordingly
 def main(argv):
@@ -63,7 +63,7 @@ def main(argv):
   # grab images from S3
   path = rackNum + "/" + subjectYear + "/" + subjectMonth + "/" + subjectDay
   sys.stdout.write(path + " ")
-  command = "aws s3 sync s3://"+settings.aws.bucket+"/" + path + " /tmp/s3/" + path
+  command = "aws s3 sync s3://"+settings['s3']['bucket']+"/" + path + " /tmp/s3/" + path
   try:
       process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
       process.wait(60)
