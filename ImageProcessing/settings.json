@@ -10,6 +10,11 @@
     "bucket" : "my-rack"
   },
   "server" : {
-    "host" : "https://smartrackapi.herokuapp.com"
+    "host" : "https://smartrackapi.herokuapp.com",
+    "local" : "http://localhost:3001"
+  },
+  "prefs" : {
+    "restock" : true,
+    "shelves_report" : true
   }
 }
